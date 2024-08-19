@@ -81,7 +81,7 @@ class Game {
 		let res="";
 		for(let i=0;i<this.#usersGuesses.length;i++)
 			res+=(res.length>0 ? "\n" : "") + this.#usersGuesses[i].toString();
-		return "User's Guess    |    Actual Value\n---------------------\n" + res;
+		return "User's Guess    |    Actual Value\n---------------------------------\n" + res;
 	}
 	/**
 	 * Prompts the user a message.
