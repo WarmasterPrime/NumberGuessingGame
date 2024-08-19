@@ -77,7 +77,7 @@ class Game {
 	mainMenu() {
 		this.clear();
 		const meIns=this;
-		this.prompt("Number Guesser\n\nMAIN MENU\n---------\n\n0.) Exit\n1.) Start\n2.) Change Mode\n\n");
+		this.prompt("Number Guesser\n\nMAIN MENU\n---------\n\n0.) Exit\n1.) Start\n2.) Change Mode\n3.) Change range\n\n");
 		this.getInput("Please enter the number associated with the menu option: ").then((input) => {
 			switch(parseFloat(input)) {
 				case 0:
@@ -88,6 +88,9 @@ class Game {
 					break;
 				case 2:
 					meIns.promptForModeSelection();
+					break;
+				case 3:
+					meIns.updateRangeMenu();
 					break;
 				default:
 					meIns.mainMenu();
