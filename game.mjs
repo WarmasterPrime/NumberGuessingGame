@@ -23,7 +23,7 @@ class Game {
 	 */
 	start() {
 		console.clear();
-		const selectedNumber = Game.getRandom(0, 100);
+		const selectedNumber = Math.floor(Game.getRandom(0, 100));
 		this.prompt("Pick a number between 0 and 100...");
 		let meInstance=this;
 		this.getInput().then((userResponse) => {
@@ -49,6 +49,7 @@ class Game {
 	 */
 	showResults() {
 		this.prompt("You scored " + this.points.toString() + " points...");
+		process.exit();
 	}
 	/**
 	 * Prompts the user a message.
