@@ -75,6 +75,7 @@ class Game {
 	 * Provides the main menu controls for the user.
 	 */
 	mainMenu() {
+		this.clear();
 		const meIns=this;
 		this.prompt("Number Guesser\n\nMAIN MENU\n---------\n\n0.) Exit\n1.) Start\n2.) Change Mode\n\n");
 		this.getInput("Please enter the number associated with the menu option: ").then((input) => {
@@ -94,7 +95,58 @@ class Game {
 			}
 		});
 	}
-
+	/**
+	 * Displays options for range adjustments.
+	 */
+	updateRangeMenu() {
+		this.clear();
+		const meIns=this;
+		this.prompt("0.) Back\n1.) Set minimum value (" + this.#min.toString() + ")\n2.) Set maximum value (" + this.#max.toString() + ")");
+		this.getInput("Please enter the number associated with the menu option: ").then((input) => {
+			switch(parseFloat(input)) {
+				case 0:
+					meIns.mainMenu();
+					break;
+				case 1:
+					meIns.promptForMinSet();
+					break;
+				case 2:
+					meIns.promptForMaxSet();
+					break;
+				default:
+					meIns.updateRangeMenu();
+					break;
+			}
+		});
+	}
+	/**
+	 * Prompts the user to set the minimum value for the range selection.
+	 */
+	promptForMinSet() {
+		this.clear();
+		const meIns=this;
+		this.getInput("Enter the minimum value for the range: ").then((input) => {
+			meIns.#min=parseFloat(input);
+			meIns.updateRangeMenu();
+		});
+	}
+	/**
+	 * Prompts the user to set the maximum value for the range selection.
+	 */
+	promptForMaxSet() {
+		this.clear();
+		const meIns=this;
+		this.getInput("Enter the maximum value for the range: ").then((input) => {
+			meIns.#max=parseFloat(input);
+			meIns.updateRangeMenu();
+		});
+	}
+	/**
+	 * Clears the interface.
+	 */
+	clear() {
+		console.clear();
+	}
 	/**
 	 * Starts the game.
 	 */
