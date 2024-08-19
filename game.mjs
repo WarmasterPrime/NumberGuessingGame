@@ -238,6 +238,5 @@ class Game {
 		return (Math.random() * (max+1)) + min;
 	}
 }
-
-const gameInstance = new Game(1, 100);
-gameInstance.mainMenu();
+const gameInstance = new Game(1, 100); // Initializes the game object with a range between 1 and 100.
+gameInstance.mainMenu(); // Starts the game at the main menu screen.
