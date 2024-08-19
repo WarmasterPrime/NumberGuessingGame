@@ -1,5 +1,4 @@
 
-import VNumber from "vNumber.mjs";
 import * as readlinePromises from "node:readline/promises";
 const rl = readlinePromises.createInterface( { input: process.stdin, output: process.stdout } );
 
@@ -21,7 +20,7 @@ class Game {
 	 * Starts the game.
 	 */
 	start() {
-		let selectedNumber = VNumber.getRandom(0, 100);
+		let selectedNumber = Game.getRandom(0, 100);
 		this.prompt("Pick a number between 0 and 100...");
 		let userResponse = this.getInput();
 		console.log(userResponse);
@@ -57,7 +56,15 @@ class Game {
 	async getInput() {
 		return await rl.question("Enter guess: ");
 	}
-
+	/**
+	 * Generates a random number within a given range.
+	 * @param {int|float} min The minimum numerical value that the random number can be.
+	 * @param {int|float} max The maximum numerical value that the random number can be.
+	 * @returns {int|float}
+	 */
+	static getRandom(min, max) {
+		return (Math.random() + min) * max;
+	}
 }
 
 const gameInstance = new Game();
