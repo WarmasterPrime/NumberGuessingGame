@@ -47,23 +47,34 @@ class Game {
 		this.#min=min;
 		this.#max=max;
 		this.mode=mode;
+		this.selectedNumber;
 	}
 	/**
 	 * Starts the game.
 	 */
 	start() {
 		console.clear();
-		const selectedNumber = Math.floor(Game.getRandom(this.#min, this.#max));
+		//const selectedNumber = Math.floor(Game.getRandom(this.#min, this.#max));
+		if(this.mode==="hint" && this.#userGuesses.length===0)
+			this.selectedNumber=Math.floor(Game.getRandom(this.#min, this.#max));
+		//this.selectedNumber=Math.floor(Game.getRandom(this.#min, this.#max));
+		const selectedNumber=this.selectedNumber;
 		this.prompt("Pick a number between " + this.#min.toString() + " and " + this.#max.toString() + "...");
 		let meInstance=this;
 		this.getInput().then((userResponse) => {
 			console.log(userResponse);
 			meInstance.#usersGuesses.push(new Guess(userResponse, selectedNumber));
-			if (parseFloat(userResponse) === selectedNumber) {
+			if(parseFloat(userResponse)===selectedNumber) {
 				meInstance.points++;
-				meInstance.prompt("Excellent job!!!\nYour score is \"" + meInstance.points.toString() + "\"");
-			} else
-				meInstance.prompt("Incorrect answer! The correct answer is \"" + selectedNumber.toString() + "\"\nYour score is \"" + meInstance.points.toString() + "\"");
+				meInstance.prompt("Excellent job!!!\nYour score is \""+meInstance.points.toString()+"\"");
+				if(this.mode==="hint")
+					meInstance.selectedNumber=Math.floor(Game.getRandom(this.#min, this.#max));
+			} else {
+				if(this.mode==="hint")
+					meInstance.prompt("Try a " + (parseFloat(userResponse)<selectedNumber ? "higher" : "lower") + " number");
+				else
+					meInstance.prompt("Incorrect answer! The correct answer is \""+selectedNumber.toString()+"\"\nYour score is \""+meInstance.points.toString()+"\"");
+			}
 			meInstance.prompt("Continue? \"Yes\" or \"No\"");
 			meInstance.getInput().then((userContinue) => {
 				const resp=userContinue.toLowerCase();
