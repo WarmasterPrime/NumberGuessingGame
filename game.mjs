@@ -32,7 +32,8 @@ class Game {
 			if (userResponse === selectedNumber) {
 				meInstance.points++;
 				meInstance.prompt("Excellent job!!!");
-			}
+			} else
+				meInstance.prompt("Incorrect answer! The correct answer is \"" + selectedNumber.toString() + "\"");
 			meInstance.prompt("Continue? \"Yes\" or \"No\"");
 			meInstance.getInput().then((userContinue) => {
 				const resp=userContinue.toLowerCase();
