@@ -70,8 +70,18 @@ class Game {
 	 * Displays the player's results.
 	 */
 	showResults() {
-		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.#usersGuesses.toString());
+		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.getGuesses());
 		process.exit();
+	}
+	/**
+	 * Generates a string table of the guesses.
+	 * @returns {string}
+	 */
+	getGuesses() {
+		let res="";
+		for(let i=0;i<this.#usersGuesses.length;i++)
+			res+=(res.length>0 ? "\n" : "") + this.#usersGuesses[i].toString();
+		return "User's Guess    |    Actual Value\n---------------------\n" + res;
 	}
 	/**
 	 * Prompts the user a message.
