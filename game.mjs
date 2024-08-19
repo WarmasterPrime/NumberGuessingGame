@@ -3,6 +3,8 @@ import * as readlinePromises from "node:readline/promises";
 const rl = readlinePromises.createInterface( { input: process.stdin, output: process.stdout } );
 
 // Number Guessing Game Source Code
+// node C:\Files\Programming\UiA\Games\game.mjs
+
 
 /**
  * Manages the game's operations.
