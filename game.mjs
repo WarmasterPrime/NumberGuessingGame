@@ -34,19 +34,25 @@ class Guess {
 class Game {
 
 	#usersGuesses = [];
+	#min=0;
+	#max=10;
 	/**
 	 * Creates a new instance of the Game object.
+	 * @param {int|float} min The minimum value of the range to select from.
+	 * @param {int|float} max The maximum value of the range to select from.
 	 */
-	constructor() {
+	constructor(min, max) {
 		this.points = 0;
+		this.min=min;
+		this.max=max;
 	}
 	/**
 	 * Starts the game.
 	 */
 	start() {
 		console.clear();
-		const selectedNumber = Math.floor(Game.getRandom(0, 10));
-		this.prompt("Pick a number between 0 and 10...");
+		const selectedNumber = Math.floor(Game.getRandom(this.#min, this.#max));
+		this.prompt("Pick a number between " + this.#min.toString() + " and " + this.#max.toString() + "...");
 		let meInstance=this;
 		this.getInput().then((userResponse) => {
 			console.log(userResponse);
@@ -108,5 +114,5 @@ class Game {
 	}
 }
 
-const gameInstance = new Game();
+const gameInstance = new Game(1, 100);
 gameInstance.start();
