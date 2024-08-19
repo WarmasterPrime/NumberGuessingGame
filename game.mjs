@@ -49,8 +49,11 @@ class Game {
 		this.mode=mode;
 		this.selectedNumber;
 	}
-
+	/**
+	 * Displays the menu for mode selection.
+	 */
 	promptForModeSelection() {
+		this.clear();
 		const meInstance=this;
 		this.prompt("Please select a mode from the list below...\n\n1.) Normal\n2.) Hint (Warm/Cold)\n");
 		this.getInput().then((userResponse) => {
