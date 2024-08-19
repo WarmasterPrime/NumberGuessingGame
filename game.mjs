@@ -55,9 +55,12 @@ class Game {
 	promptForModeSelection() {
 		this.clear();
 		const meInstance=this;
-		this.prompt("Please select a mode from the list below...\n\n1.) Normal\n2.) Hint (Warm/Cold)\n");
+		this.prompt("Please select a mode from the list below...\n\n0.) Back\n1.) Normal\n2.) Hint (Warm/Cold)\n");
 		this.getInput().then((userResponse) => {
 			switch(parseFloat(userResponse)) {
+				case 0:
+					meInstance.mainMenu();
+					break;
 				case 1:
 					meInstance.mode="normal";
 					break;
