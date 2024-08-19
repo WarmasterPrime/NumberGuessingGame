@@ -5,6 +5,28 @@ const rl = readlinePromises.createInterface( { input: process.stdin, output: pro
 // Number Guessing Game Source Code
 // node C:\Files\Programming\UiA\Games\game.mjs
 
+/**
+ * Stores guessing information.
+ */
+class Guess {
+	/**
+	 * Creates a pair between the user's guess and the computer's actual value.
+	 * @param {any} userGuess
+	 * @param {any} actualValue
+	 */
+	constructor(userGuess,actualValue) {
+		this.userGuess=userGuess;
+		this..actualValue=actualValue;
+	}
+	/**
+	 * Gets the string representation of this object.
+	 * @returns {string}
+	 */
+	toString() {
+		return this.userGuess.toString() + " -> " + this.actualValue.toString();
+	}
+
+}
 
 /**
  * Manages the game's operations.
@@ -28,7 +50,7 @@ class Game {
 		let meInstance=this;
 		this.getInput().then((userResponse) => {
 			console.log(userResponse);
-			meInstance.#usersGuesses.push(userResponse);
+			meInstance.#usersGuesses.push(new Guess(userResponse, selectedNumber));
 			if (parseFloat(userResponse) === selectedNumber) {
 				meInstance.points++;
 				meInstance.prompt("Excellent job!!!\nYour score is \"" + meInstance.points.toString() + "\"");
@@ -48,7 +70,7 @@ class Game {
 	 * Displays the player's results.
 	 */
 	showResults() {
-		this.prompt("You scored " + this.points.toString() + " points...");
+		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.#userGuesses.toString());
 		process.exit();
 	}
 	/**
