@@ -14,9 +14,10 @@ class Guess {
 	 * @param {any} userGuess
 	 * @param {any} actualValue
 	 */
-	constructor(userGuess,actualValue) {
+	constructor(userGuess, actualValue, mode="hint") {
 		this.userGuess=parseFloat(userGuess);
 		this.actualValue=parseFloat(actualValue);
+		this.mode=mode;
 	}
 	/**
 	 * Gets the string representation of this object.
@@ -41,10 +42,11 @@ class Game {
 	 * @param {int|float} min The minimum value of the range to select from.
 	 * @param {int|float} max The maximum value of the range to select from.
 	 */
-	constructor(min, max) {
+	constructor(min, max, mode="hint") {
 		this.points = 0;
 		this.#min=min;
 		this.#max=max;
+		this.mode=mode;
 	}
 	/**
 	 * Starts the game.
