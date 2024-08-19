@@ -16,7 +16,7 @@ class Guess {
 	 */
 	constructor(userGuess,actualValue) {
 		this.userGuess=userGuess;
-		this..actualValue=actualValue;
+		this.actualValue=actualValue;
 	}
 	/**
 	 * Gets the string representation of this object.
