@@ -195,7 +195,7 @@ class Game {
 	 */
 	showResults() {
 		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.getGuesses());
-		this.exit();
+		this.mainMenu();
 	}
 	/**
 	 * Generates a string table of the guesses.
