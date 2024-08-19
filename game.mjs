@@ -43,8 +43,8 @@ class Game {
 	 */
 	constructor(min, max) {
 		this.points = 0;
-		this.min=min;
-		this.max=max;
+		this.#min=min;
+		this.#max=max;
 	}
 	/**
 	 * Starts the game.
