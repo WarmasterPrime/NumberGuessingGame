@@ -78,10 +78,10 @@ class Game {
 			meInstance.prompt("Continue? \"Yes\" or \"No\"");
 			meInstance.getInput().then((userContinue) => {
 				const resp=userContinue.toLowerCase();
-				if (resp === "yes" || resp === "y")
-					meInstance.start();
-				else
+				if (resp === "no" || resp === "n")
 					meInstance.showResults();
+				else
+					meInstance.start();
 			});
 		});
 	}
