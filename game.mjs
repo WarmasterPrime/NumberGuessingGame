@@ -20,6 +20,7 @@ class Game {
 	 * Starts the game.
 	 */
 	start() {
+		console.clear();
 		let selectedNumber = Game.getRandom(0, 100);
 		this.prompt("Pick a number between 0 and 100...");
 		let meInstance=this;
@@ -32,7 +33,8 @@ class Game {
 			}
 			meInstance.prompt("Continue? \"Yes\" or \"No\"");
 			meInstance.getInput().then((userContinue) => {
-				if (userContinue === "yes")
+				const resp=userContinue.toLowerCase();
+				if (resp === "yes" || resp === "y")
 					start();
 				else
 					meInstance.showResults();
