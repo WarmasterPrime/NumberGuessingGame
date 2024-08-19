@@ -54,10 +54,8 @@ class Game {
 	 */
 	start() {
 		console.clear();
-		//const selectedNumber = Math.floor(Game.getRandom(this.#min, this.#max));
 		if(this.mode==="hint" && this.#usersGuesses.length===0)
 			this.selectedNumber=Math.floor(Game.getRandom(this.#min, this.#max));
-		//this.selectedNumber=Math.floor(Game.getRandom(this.#min, this.#max));
 		const selectedNumber=this.selectedNumber;
 		this.prompt("Pick a number between " + this.#min.toString() + " and " + this.#max.toString() + "...");
 		let meInstance=this;
