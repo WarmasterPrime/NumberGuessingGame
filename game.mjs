@@ -55,7 +55,7 @@ class Game {
 	start() {
 		console.clear();
 		//const selectedNumber = Math.floor(Game.getRandom(this.#min, this.#max));
-		if(this.mode==="hint" && this.#userGuesses.length===0)
+		if(this.mode==="hint" && this.#usersGuesses.length===0)
 			this.selectedNumber=Math.floor(Game.getRandom(this.#min, this.#max));
 		//this.selectedNumber=Math.floor(Game.getRandom(this.#min, this.#max));
 		const selectedNumber=this.selectedNumber;
