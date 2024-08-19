@@ -46,7 +46,7 @@ class Game {
 	start() {
 		console.clear();
 		const selectedNumber = Math.floor(Game.getRandom(0, 10));
-		this.prompt("Pick a number between 0 and 100...");
+		this.prompt("Pick a number between 0 and 10...");
 		let meInstance=this;
 		this.getInput().then((userResponse) => {
 			console.log(userResponse);
