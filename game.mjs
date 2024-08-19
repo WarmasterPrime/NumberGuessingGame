@@ -1,3 +1,11 @@
+/**
+ * @author Daniel K. Valente
+ * @created 08-19-2024 (MM-DD-YYYY)
+ * @version 0.0.0
+ * @description Provides a simple console game designed for number guessing.
+ * @dependencies []
+ */
+
 
 import * as readlinePromises from "node:readline/promises";
 const rl = readlinePromises.createInterface( { input: process.stdin, output: process.stdout } );
