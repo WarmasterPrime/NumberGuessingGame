@@ -49,6 +49,52 @@ class Game {
 		this.mode=mode;
 		this.selectedNumber;
 	}
+
+	promptForModeSelection() {
+		const meInstance=this;
+		this.prompt("Please select a mode from the list below...\n\n1.) Normal\n2.) Hint (Warm/Cold)\n");
+		this.getInput().then((userResponse) => {
+			switch(parseFloat(userResponse)) {
+				case 1:
+					meInstance.mode="normal";
+					break;
+				case 2:
+					meInstance.mode="hint";
+					break;
+				default:
+					meInstance.mode="normal";
+					break;
+			}
+			meInstance.prompt("The mode has been successfully changed to \"" + meInstance.mode.toString() + "\"...\n\n");
+			meInstance.getInput("Press the enter key to return to the main menu...").then(() => {
+				meInstance.mainMenu();
+			});
+		});
+	}
+	/**
+	 * Provides the main menu controls for the user.
+	 */
+	mainMenu() {
+		const meIns=this;
+		this.prompt("Number Guesser\n\nMAIN MENU\n---------\n\n0.) Exit\n1.) Start\n2.) Change Mode\n\n");
+		this.getInput("Please enter the number associated with the menu option: ").then((input) => {
+			switch(parseFloat(input)) {
+				case 0:
+					meIns.exit();
+					break;
+				case 1:
+					meIns.start();
+					break;
+				case 2:
+					meIns.promptForModeSelection();
+					break;
+				default:
+					meIns.mainMenu();
+					break;
+			}
+		});
+	}
+
 	/**
 	 * Starts the game.
 	 */
@@ -84,11 +130,17 @@ class Game {
 		});
 	}
 	/**
+	 * Exists the game.
+	 */
+	exit() {
+		process.exit();
+	}
+	/**
 	 * Displays the player's results.
 	 */
 	showResults() {
 		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.getGuesses());
-		process.exit();
+		this.exit();
 	}
 	/**
 	 * Generates a string table of the guesses.
@@ -111,8 +163,8 @@ class Game {
 	 * Prompts the user with a query.
 	 * @returns
 	 */
-	async getInput() {
-		return await rl.question("Enter response: ");
+	async getInput(text="Enter response: ") {
+		return await rl.question(text);
 	}
 	/**
 	 * Generates a random number within a given range.
