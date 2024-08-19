@@ -26,9 +26,7 @@ class Guess {
 	toString() {
 		return this.userGuess.toString() + " -> " + this.actualValue.toString() + " (" + (this.userGuess===this.actualValue ? "Correct" : "Incorrect") + ")";
 	}
-
 }
-
 /**
  * Manages the game's operations.
  */
