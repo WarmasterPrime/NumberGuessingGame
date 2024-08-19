@@ -110,7 +110,7 @@ class Game {
 	 * @returns {int|float}
 	 */
 	static getRandom(min, max) {
-		return (Math.random() + min) * max;
+		return (Math.random() * (max+1))) + min;
 	}
 }
 
