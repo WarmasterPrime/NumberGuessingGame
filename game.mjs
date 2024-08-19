@@ -22,19 +22,20 @@ class Game {
 	start() {
 		let selectedNumber = Game.getRandom(0, 100);
 		this.prompt("Pick a number between 0 and 100...");
-		let userResponse = this.getInput();
-		console.log(userResponse);
-		this.#usersGuesses.push(userResponse);
-		if (userResponse === selectedResponse) {
-			this.points++;
-			this.prompt("Excellent job!!!");
-		}
-		this.prompt("Continue? \"Yes\" or \"No\"");
-		let userContinue = this.getInput().toLowerCase();
-		if (userContinue === "yes")
-			start();
-		else
-			this.showResults();
+		this.getInput().then((userResponse) => {
+			console.log(userResponse);
+			this.#usersGuesses.push(userResponse);
+			if (userResponse === selectedResponse) {
+				this.points++;
+				this.prompt("Excellent job!!!");
+			}
+			this.prompt("Continue? \"Yes\" or \"No\"");
+			let userContinue = this.getInput().toLowerCase();
+			if (userContinue === "yes")
+				start();
+			else
+				this.showResults();
+		});
 	}
 	/**
 	 * Displays the player's results.
