@@ -15,15 +15,15 @@ class Guess {
 	 * @param {any} actualValue
 	 */
 	constructor(userGuess,actualValue) {
-		this.userGuess=userGuess;
-		this.actualValue=actualValue;
+		this.userGuess=parseFloat(userGuess);
+		this.actualValue=parseFloat(actualValue);
 	}
 	/**
 	 * Gets the string representation of this object.
 	 * @returns {string}
 	 */
 	toString() {
-		return this.userGuess.toString() + " -> " + this.actualValue.toString();
+		return this.userGuess.toString() + " -> " + this.actualValue.toString() + " (" + (this.userGuess===this.actualValue ? "Correct" : "Incorrect") + ")";
 	}
 
 }
