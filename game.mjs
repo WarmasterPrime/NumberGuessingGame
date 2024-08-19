@@ -23,7 +23,8 @@ class Game {
 	start() {
 		let selectedNumber = VNumber.getRandom(0, 100);
 		this.prompt("Pick a number between 0 and 100...");
-		let userResponse = await this.getInput();
+		let userResponse = this.getInput();
+		console.log(userResponse);
 		this.#usersGuesses.push(userResponse);
 		if (userResponse === selectedResponse) {
 			this.points++;

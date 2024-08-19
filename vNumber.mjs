@@ -1,7 +1,7 @@
 /**
  * Manages number generation.
  */
-class VNumber {
+export default class VNumber {
 	/**
 	 * Generates a random number within a given range.
 	 * @param {int|float} min The minimum numerical value that the random number can be.
