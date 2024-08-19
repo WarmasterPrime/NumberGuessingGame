@@ -101,7 +101,7 @@ class Game {
 	 * @returns
 	 */
 	async getInput() {
-		return await rl.question("Enter guess: ");
+		return await rl.question("Enter response: ");
 	}
 	/**
 	 * Generates a random number within a given range.
