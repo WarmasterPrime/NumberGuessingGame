@@ -230,4 +230,4 @@ class Game {
 }
 
 const gameInstance = new Game(1, 100);
-gameInstance.start();
+gameInstance.mainMenu();
