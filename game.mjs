@@ -31,9 +31,9 @@ class Game {
 			meInstance.#usersGuesses.push(userResponse);
 			if (parseFloat(userResponse) === selectedNumber) {
 				meInstance.points++;
-				meInstance.prompt("Excellent job!!!");
+				meInstance.prompt("Excellent job!!!\nYour score is \"" + meInstance.points.toString() + "\"");
 			} else
-				meInstance.prompt("Incorrect answer! The correct answer is \"" + selectedNumber.toString() + "\"");
+				meInstance.prompt("Incorrect answer! The correct answer is \"" + selectedNumber.toString() + "\"\nYour score is \"" + meInstance.points.toString() + "\"");
 			meInstance.prompt("Continue? \"Yes\" or \"No\"");
 			meInstance.getInput().then((userContinue) => {
 				const resp=userContinue.toLowerCase();
