@@ -70,7 +70,7 @@ class Game {
 	 * Displays the player's results.
 	 */
 	showResults() {
-		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.#userGuesses.toString());
+		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.#usersGuesses.toString());
 		process.exit();
 	}
 	/**
