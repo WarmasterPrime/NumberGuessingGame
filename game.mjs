@@ -26,7 +26,7 @@ class Game {
 		this.getInput().then((userResponse) => {
 			console.log(userResponse);
 			meInstance.#usersGuesses.push(userResponse);
-			if (userResponse === selectedResponse) {
+			if (userResponse === selectedNumber) {
 				meInstance.points++;
 				meInstance.prompt("Excellent job!!!");
 			}
