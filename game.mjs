@@ -200,8 +200,11 @@ class Game {
 	 * Displays the player's results.
 	 */
 	showResults() {
+		const meIns=this;
 		this.prompt("You scored " + this.points.toString() + " points...\n\nYou've given the following responses to the number guesses...\n\n" + this.getGuesses());
-		this.mainMenu();
+		this.getInput("Press enter to return to the main menu...").then(() => {
+			meIns.mainMenu();
+		});
 	}
 	/**
 	 * Generates a string table of the guesses.
