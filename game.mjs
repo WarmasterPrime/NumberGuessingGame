@@ -21,7 +21,7 @@ class Game {
 	 */
 	start() {
 		console.clear();
-		let selectedNumber = Game.getRandom(0, 100);
+		const selectedNumber = Game.getRandom(0, 100);
 		this.prompt("Pick a number between 0 and 100...");
 		let meInstance=this;
 		this.getInput().then((userResponse) => {
@@ -35,7 +35,7 @@ class Game {
 			meInstance.getInput().then((userContinue) => {
 				const resp=userContinue.toLowerCase();
 				if (resp === "yes" || resp === "y")
-					start();
+					meInstance.start();
 				else
 					meInstance.showResults();
 			});
